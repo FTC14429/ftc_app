@@ -15,24 +15,47 @@ public class LanderDeploy extends LinearOpMode {
     //DcMotor blockDc;
 
 
+
     public void linearDeploy(){
     }
 
     public void runLinearDeploy(){
-        landerDc = hardwareMap.dcMotor.get("linear_latch");
-        //blockDc = hardwareMap.dcMotor.get ("block_latch");
-        //blockDc.setPower(-1);
-        sleep(20);
-        //blockDc.setPower(0);
-        sleep(1000);
-        landerDc.setPower(-0.5);
-        sleep(4000);
-        landerDc.setPower(0);
-        robot.leftDrive.setPower(0);
-        sleep(500);
-        robot.rightDrive.setPower(0.5);
-        sleep(500);
 
+
+        robot.leftDrive = hardwareMap.dcMotor.get("left_drive");
+        robot.rightDrive = hardwareMap.dcMotor.get("right_drive");
+        landerDc = hardwareMap.dcMotor.get("linear_latch");
+
+        sleep(20);
+        landerDc.setPower(-0.5);
+        sleep(5000);
+        landerDc.setPower(0);
+
+        robot.leftDrive.setPower(0.5);
+        robot.rightDrive.setPower(0.5);
+        sleep(150);
+        robot.leftDrive.setPower(0);
+        robot.rightDrive.setPower(0);
+
+        sleep(1000);
+
+        robot.leftDrive.setPower(-0.5);
+        robot.rightDrive.setPower(0.5);
+        sleep(50);
+
+        robot.leftDrive.setPower(-0.4);
+        robot.rightDrive.setPower(0.2);
+        sleep(1000);
+
+        robot.leftDrive.setPower(-0.2);
+        robot.rightDrive.setPower(1);
+        sleep(1000);
+
+        robot.leftDrive.setPower(-0.5);
+        robot.rightDrive.setPower(0.5);
+        sleep(1000);
+        robot.rightDrive.setPower(0);
+        robot.leftDrive.setPower(0);
     }
 
     @Override

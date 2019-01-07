@@ -14,15 +14,18 @@ public class DeployDeposit extends LinearOpMode {
     public void runLinearDeploy(){
         //wait for 20 milliseconds before starting actions
         sleep(20);
+
         //make the robot deploy from the lander and tough the ground, then stop power
         robot.linearLatch.setPower(-0.5);
         sleep(4000);
         robot.linearLatch.setPower(0);
+
         //make the robot turn to the left to get clear from the lander
         robot.leftDrive.setPower(0);
         sleep(500);
         robot.rightDrive.setPower(0.5);
         sleep(500);
+
         //stop power to the 2 drives
         robot.leftDrive.setPower(0);
         sleep(10);
@@ -35,17 +38,17 @@ public class DeployDeposit extends LinearOpMode {
         sleep(500);
         robot.leftDrive.setPower(0);
         sleep(500);
+
         //keep driving straight. The robot will hit the wall, align itself, and then reach the depot. Then it will stop power.
         robot.leftDrive.setPower(0.5);
         sleep(4000);
         robot.rightDrive.setPower(0.5);
         sleep(4000);
         robot.rightDrive.setPower(0);
-        sleep(10);
         robot.leftDrive.setPower(0);
-        sleep(10);
+
         //use the mascot arm to fling the mascot into the depot
-        robot.mascotServo.setPosition(0.7);
+        //robot.mascotServo.setPosition(0.7);
     }
 
     @Override

@@ -10,14 +10,11 @@ public class LanderUnwind extends LinearOpMode {
 
     TartleBot robot           = new TartleBot();
 
-    DcMotor landerDc;
-
 
     public void runUnwind(){
-        landerDc = hardwareMap.dcMotor.get("linear_latch");
-        landerDc.setPower(-0.5);
+        robot.linearLatch.setPower(-0.5);
         sleep(1000);
-        landerDc.setPower(0);
+        robot.linearLatch.setPower(0);
 
     }
 

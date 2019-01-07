@@ -12,6 +12,8 @@ public class TartleBot {
     public DcMotor  rightDrive  = null;
     public DcMotor  linearLatch = null;
     public Servo mascotServo     = null;
+    public  Servo mascotOne     = null;
+    public  Servo mascotTwo     = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  1 ;
@@ -44,10 +46,12 @@ public class TartleBot {
         linearLatch.setPower(0);
 
         //Define and Initialize Servos
-        mascotServo    = hwMap.get(Servo.class, "sweep_arm");
+        mascotServo  = hwMap.get(Servo.class, "mascot_deposit");
+        mascotOne  = hwMap.get(Servo.class, "mascot_one");
+        mascotTwo  = hwMap.get(Servo.class, "mascot_two");
 
         // Define and initialize ALL installed servos.
-        mascotServo.setPosition(0.15);
+        mascotServo.setPosition(0.5);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.

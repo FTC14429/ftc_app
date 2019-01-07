@@ -13,10 +13,10 @@ public class LanderLift extends LinearOpMode {
 
 
     public void runLanderLift(){
-        landerDc = hardwareMap.dcMotor.get("linear_latch");
-        landerDc.setPower(1);
+        //make the linearLatch lift the robot
+        robot.linearLatch.setPower(1);
         sleep(1500);
-        landerDc.setPower(0);
+        robot.linearLatch.setPower(0);
 
     }
 
