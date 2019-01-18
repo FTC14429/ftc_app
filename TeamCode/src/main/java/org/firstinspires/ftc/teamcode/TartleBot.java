@@ -11,9 +11,7 @@ public class TartleBot {
     public DcMotor leftDrive   = null;
     public DcMotor  rightDrive  = null;
     public DcMotor  linearLatch = null;
-    public Servo mascotServo     = null;
-    public  Servo mascotOne     = null;
-    public  Servo mascotTwo     = null;
+    public DcMotor  mascotFling = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  1 ;
@@ -39,25 +37,24 @@ public class TartleBot {
         leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         linearLatch  = hwMap.get(DcMotor.class, "linear_latch");
+        mascotFling  = hwMap.get(DcMotor.class, "mascot_dc");
 
         // Set all motors to zero power
         leftDrive.setPower(0);
         rightDrive.setPower(0);
         linearLatch.setPower(0);
+        mascotFling.setPower(0);
 
-        //Define and Initialize Servos
-        mascotServo  = hwMap.get(Servo.class, "mascot_deposit");
-        mascotOne  = hwMap.get(Servo.class, "mascot_one");
-        mascotTwo  = hwMap.get(Servo.class, "mascot_two");
+        //Put break mode on DcMotors
+        mascotFling.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        // Define and initialize ALL installed servos.
-        mascotServo.setPosition(0.5);
-
-        // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         linearLatch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        mascotFling.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
 }

@@ -80,8 +80,8 @@ public class TeleOp2018 extends LinearOpMode {
                 clawOffset = clawOffset - CLAW_SPEED;
             }
             // Move both servos to new position.  Assume servos are mirror image of each other.
-            clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-            robot.mascotServo.setPosition(0.15 + clawOffset);
+            //clawOffset = Range.clip(clawOffset, -0.5, 0.5);
+            //robot.mascotServo.setPosition(0.15 + clawOffset);
 
             // Use gamepad buttons to move arm up (Y) and down (A)
             if (gamepad1.y) {

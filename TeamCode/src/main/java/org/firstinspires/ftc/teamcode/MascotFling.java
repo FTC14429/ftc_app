@@ -11,27 +11,36 @@ public class MascotFling extends LinearOpMode {
 
 
     public void flingMascot(){
+
+        //make the robot turn to the left again to get in the correct deposit angle
+        //robot.rightDrive.setPower(0.5);
+        //sleep(500);
+        /*robot.leftDrive.setPower(0);
+        sleep(500);
+
+        //keep driving straight. The robot will hit the wall, align itself, and then reach the depot. Then it will stop power.
+        robot.leftDrive.setPower(0.5);
+        sleep(4000);
+        robot.rightDrive.setPower(0.5);
+        sleep(4000);
+        robot.rightDrive.setPower(0);
+        robot.leftDrive.setPower(0);
+        */
+
+
         //use the mascot arm to fling the mascot into the depot
-        //robot.mascotServo.setPosition(0.6);
-        if (robot.mascotServo == null){
-            System.out.println("mascotServo is null");
-        }
-        else if (robot.mascotOne == null){
-            System.out.println("mascotOne is null");
-        }
-        else if (robot.mascotTwo == null){
-            System.out.println("mascotTwo is null");
-        }
-        else {
-            System.out.println("none of the servos are null");
-        }
-        robot.mascotServo.setPosition(0.7);
-        robot.mascotOne.setPosition(0.7);
-        robot.mascotTwo.setPosition(0.7);
+        robot.mascotFling.setPower(-0.6);
+        sleep(100);
+        robot.mascotFling.setPower(0);
+
     }
 
     @Override
     public void runOpMode() throws InterruptedException{
+
+        robot.initialize(hardwareMap);
+        sleep(200);
+
         waitForStart();
         flingMascot();
     }
